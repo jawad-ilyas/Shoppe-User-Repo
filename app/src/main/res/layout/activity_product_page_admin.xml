@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AmindFolder.ProductPageActivityAdmin">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+
+        android:src="@drawable/ready_card_img"/>
+
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:text="@string/detailAboutProduct"
+        style="@style/subHeadingStyle"
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/lightPrimary"
+
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Your  Product Name"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:id="@+id/brandName"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Your Product Description"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:id="@+id/brandDescription"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Your Product Price"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:id="@+id/productPrice"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito"
+        android:text="@string/addProduct"
+        style="@style/MyButtonStyle"
+        android:id="@+id/AddBrandIntoDataBase"
+        android:background="@drawable/fullwidth_button_backgroud"
+        android:textStyle="normal" />
+</LinearLayout>

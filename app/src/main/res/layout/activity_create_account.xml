@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".CreateAccount">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/createAccount"
+        style="@style/headingStyle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/upload_image_avatar"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+        android:hint="Email"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Password"
+        android:layout_marginTop="5dp"
+        android:paddingVertical="12dp"
+        style="@style/fieldsStyle"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:hint="Your Number"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito"
+        android:text="@string/Done"
+        style="@style/MyButtonStyle"
+        android:id="@+id/moveToLoginActiv"
+        android:background="@drawable/fullwidth_button_backgroud"
+        android:textStyle="normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/cancel"
+        android:textSize="20sp"
+    android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

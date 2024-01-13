@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="33dp"
+    android:paddingVertical="90dp"
+    android:background="@drawable/background_layer"
+    tools:context=".onBoardActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="25dp"
+
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:id="@+id/firstTimeOnBoardPager"/>
+
+
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/worm_dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/primary"
+            app:dotsStrokeColor="@color/lightPrimary"
+            app:dotsCornerRadius="8dp"
+        android:layout_gravity="bottom|center"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            android:layout_marginBottom="5dp"
+            app:dotsStrokeWidth="2dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

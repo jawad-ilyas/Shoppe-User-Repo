@@ -1,0 +1,13 @@
+<!-- res/drawable/background_layer.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color -->
+    <item android:drawable="@color/lightPrimary" />
+
+    <!-- Image -->
+    <item>
+        <bitmap
+            android:src="@drawable/bubble_01"
+
+      />
+    </item>
+</layer-list>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Shoppe</string>
+    <string name="admin_name">Hello Admin</string>
+    <string name="options">Options</string>
+    <string name="letsGetStarted">"Lets's get Started"</string>
+    <string name="ialreadyHaveAnAcount">I already have an account </string>
+    <string name="createAccount">Create\nAccount</string>
+    <string name="HelloUser">Hello User</string>
+    <string name="detailAboutBrand">Enter Detail About Your Brand</string>
+    <string name="detailAboutCategory">Enter Detail About Your Category</string>
+    <string name="detailAboutProduct">Enter Detail About Your Product</string>
+    <string name="Ready">Ready ?</string>
+    <string name="PasswordRecovery">Password Recovery</string>
+    <string name="SetupNewPassword">Setup New Password</string>
+    <string name="Done">Done</string>
+    <string name="Next">Next</string>
+    <string name="cancel">Cancel</string>
+    <string name="typeYourPassword">Type Your Password</string>
+    <string name="forgetPassword">Forget Password ?</string>
+    <string name="Howyouwouldliketorestoreyourpassword">How you would like to restore\n your password?</string>
+    <string name="Enter4digitscodewesentyouonyourphonenumber">Enter 4-digits code we sent you \non your phone number</string>
+    <string name="Pleasesetupanewpasswordforyouraccount">Please, setup a new password for your account</string>
+    <string name="login">Login</string>
+    <string name="product">Product</string>
+    <string name="category">Category</string>
+    <string name="brands">Brands</string>
+    <string name="addbrand">Add Brand</string>
+    <string name="addCategory">Add Category</string>
+    <string name="addProduct">Add Product</string>
+    <string name="adminPanel">Admin Panel</string>
+    <string name="LetsStart">"Let's Start"</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="Goodtoseeyouback">Good to see you back!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
