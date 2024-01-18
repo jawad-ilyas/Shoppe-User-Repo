@@ -1,42 +1,50 @@
 package com.example.shoppe.Adapters;
 
-public class BrandAdapterAdmin {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-    String brandImage , brandDescription, brandName ;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.example.shoppe.Models.BrandModelAdmin;
+import com.example.shoppe.R;
+import com.example.shoppe.databinding.BrandSingleLayoutBinding;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+
+public class BrandAdapterAdmin extends FirebaseRecyclerAdapter<BrandModelAdmin , BrandAdapterAdmin.myBrandViewHolder> {
 
 
-    public BrandAdapterAdmin() {
-
+    public  BrandAdapterAdmin(@NonNull FirebaseRecyclerOptions<BrandModelAdmin> options) {
+        super(options);
     }
 
+    @Override
+    protected void onBindViewHolder(@NonNull myBrandViewHolder holder, int position, @NonNull BrandModelAdmin model) {
 
-    public String getBrandImage() {
-        return brandImage;
+        holder.binding.brandName.setText(model.getBrandName());
+        holder.binding.brandDescription.setText(model.getBrandDescription());
+        Glide.with(holder.itemView.getContext()).
+                load(model.getBrandImage()).into(holder.binding.brandImage);
     }
 
-    public void setBrandImage(String brandImage) {
-        this.brandImage = brandImage;
+    @NonNull
+    @Override
+    public myBrandViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view   = LayoutInflater.from(parent.getContext()).inflate(R.layout.brand_single_layout , parent , false);
+        return  new myBrandViewHolder(view);
     }
 
-    public String getBrandDescription() {
-        return brandDescription;
-    }
+    public class myBrandViewHolder extends RecyclerView.ViewHolder{
 
-    public void setBrandDescription(String brandDescription) {
-        this.brandDescription = brandDescription;
-    }
+        BrandSingleLayoutBinding binding;
+        public myBrandViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
-
-    public BrandAdapterAdmin( String brandName,  String brandDescription,String brandImage) {
-        this.brandImage = brandImage;
-        this.brandDescription = brandDescription;
-        this.brandName = brandName;
+            binding = BrandSingleLayoutBinding.bind(itemView);
+        }
     }
 }

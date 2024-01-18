@@ -4,38 +4,7 @@
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/primary</item>
          <item name="colorPrimaryDark">@color/lightDark</item>
-        <item name="android:background">@color/white</item>
-    </style>
-
-    <style name="MyButtonStyle" >
-        <item name="android:textSize">22sp</item>
-        <item name="android:textColor">@color/lightWhite</item>
-        <item name="android:background">@color/primary</item>
-    </style>
-
-
-    <style name="headingStyle" >
-        <item name="android:color">@color/black</item>
-
-        <item name="android:textSize">40dp</item>
-            <item name="android:textStyle">bold</item>
-    </style>
-    <style name="subHeadingStyle" >
-        <item name="android:color">@color/lightDark</item>
-            <item name="android:textSize">25dp</item>
-            <item name="android:textStyle">bold</item>
-    </style>
-
-    <!--  fields padding and color setting   -->
-
-    <style name="fieldsStyle">
-        <item name="android:color">@color/black</item>
-        <item name="android:textColorHint">@color/lightDark</item>
-        <item name="android:paddingStart">12dp</item>
-        <item  name="android:layout_marginTop">5dp</item>
-
-
-
+<!--        <item name="android:background">@color/white</item>-->
     </style>
 
 
@@ -53,4 +22,37 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/lightDark</item>
     </style>
+
+
+    <style name="MyButtonStyle" >
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/lightWhite</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+
+    <style name="headingStyle" >
+        <item name="android:color">@color/black</item>
+
+        <item name="android:textSize">40dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="subHeadingStyle" >
+        <item name="android:color">@color/lightDark</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--  fields padding and color setting   -->
+
+    <style name="fieldsStyle">
+        <item name="android:color">@color/black</item>
+        <item name="android:textColorHint">@color/lightDark</item>
+        <item name="android:paddingStart">12dp</item>
+        <item  name="android:layout_marginTop">5dp</item>
+
+
+
+    </style>
+
 </resources>

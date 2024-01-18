@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AmindFolder.ProductPageActivityAdmin">
+    tools:context=".AdminFolder.ProductPageActivityAdmin">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="400dp"
-
+        android:id="@+id/productImage"
         android:src="@drawable/ready_card_img"/>
 
 
@@ -22,7 +22,8 @@
         style="@style/subHeadingStyle"
         android:layout_marginHorizontal="15dp"
         android:background="@color/lightPrimary"
-
+    android:gravity="center"
+        android:padding="3dp"
         android:layout_height="wrap_content"/>
     <EditText
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
         android:layout_marginHorizontal="15dp"
         style="@style/fieldsStyle"
         android:paddingVertical="12dp"
-        android:id="@+id/brandName"
+        android:id="@+id/productName"
         android:background="@drawable/fileds_backgroudn"
         android:layout_height="wrap_content"/>
 
@@ -42,7 +43,7 @@
         android:layout_marginHorizontal="15dp"
         style="@style/fieldsStyle"
         android:paddingVertical="12dp"
-        android:id="@+id/brandDescription"
+        android:id="@+id/productDescription"
         android:background="@drawable/fileds_backgroudn"
         android:layout_height="wrap_content"/>
 
@@ -65,7 +66,7 @@
         android:fontFamily="@font/nunito"
         android:text="@string/addProduct"
         style="@style/MyButtonStyle"
-        android:id="@+id/AddBrandIntoDataBase"
+        android:id="@+id/AddProductIntoDataBase"
         android:background="@drawable/fullwidth_button_backgroud"
         android:textStyle="normal" />
 </LinearLayout>

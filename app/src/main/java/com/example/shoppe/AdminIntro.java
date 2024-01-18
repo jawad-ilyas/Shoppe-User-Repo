@@ -1,19 +1,33 @@
 package com.example.shoppe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import com.example.shoppe.AmindFolder.BrandPageActivityAdmin;
-import com.example.shoppe.AmindFolder.CategoryPageActivityAdmin;
-import com.example.shoppe.AmindFolder.ProductPageActivityAdmin;
+import com.example.shoppe.Adapters.ProductModelAdapterAdmin;
+import com.example.shoppe.Adapters.ProductModelAdmin;
+import com.example.shoppe.AdminFolder.BrandFragmentAdmin;
+import com.example.shoppe.AdminFolder.BrandPageActivityAdmin;
+import com.example.shoppe.AdminFolder.CategoryFragmentAdmin;
+import com.example.shoppe.AdminFolder.CategoryPageActivityAdmin;
+import com.example.shoppe.AdminFolder.ProductFragmentAdmin;
+import com.example.shoppe.AdminFolder.ProductPageActivityAdmin;
 import com.example.shoppe.databinding.ActivityAdminIntroBinding;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class AdminIntro extends AppCompatActivity {
 
+    ProductModelAdapterAdmin adapter;
     ActivityAdminIntroBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,33 +36,43 @@ public class AdminIntro extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.moveToBrandPage.setOnClickListener(new View.OnClickListener() {
+        replaceFragment(new ProductFragmentAdmin());
+        binding.bottomNaviationAdmin.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminIntro.this , BrandPageActivityAdmin.class));
-                finish();
-            }
-        });
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
 
-        binding.moveToCategoryPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminIntro.this , CategoryPageActivityAdmin.class));
-                finish();
-            }
-        });
+                int itemListener = item.getItemId();
 
-
-
-        binding.moveToProductPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminIntro.this , ProductPageActivityAdmin.class));
-                finish();
+                if (itemListener == R.id.productIcon) {
+                    replaceFragment(new ProductFragmentAdmin());
+                    return true;
+                } else if (itemListener == R.id.categoryIcon)
+                {
+                    replaceFragment(new CategoryFragmentAdmin());
+                    return true;
+                }
+                else if(itemListener == R.id.brandIcon)
+                {
+                    replaceFragment(new BrandFragmentAdmin());
+                    return true;
+                }
+                return false;
             }
         });
 
 
     }
+
+    private void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(binding.layoutContainerForFragments.getId(), fragment)
+                .commit();
+    }
+
+
+
+
+
+
 }

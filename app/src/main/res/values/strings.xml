@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shoppe</string>
+    <string name="app_name">Shoppe Admin</string>
     <string name="admin_name">Hello Admin</string>
     <string name="options">Options</string>
     <string name="letsGetStarted">"Lets's get Started"</string>
@@ -25,7 +25,7 @@
     <string name="category">Category</string>
     <string name="brands">Brands</string>
     <string name="addbrand">Add Brand</string>
-    <string name="addCategory">Add Category</string>
+        <string name="addCategory">Add Category</string>
     <string name="addProduct">Add Product</string>
     <string name="adminPanel">Admin Panel</string>
     <string name="LetsStart">"Let's Start"</string>

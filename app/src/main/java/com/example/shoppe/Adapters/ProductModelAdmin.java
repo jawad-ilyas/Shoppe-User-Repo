@@ -1,14 +1,14 @@
 package com.example.shoppe.Adapters;
 
-public class ProductAdapterAdmin {
+public class ProductModelAdmin {
 
     String productName , productDescription  , productPrice , productImage;
 
-    public ProductAdapterAdmin() {
+    public ProductModelAdmin() {
 
     }
 
-    public ProductAdapterAdmin(String productName, String productDescription, String productPrice, String productImage) {
+    public ProductModelAdmin(String productName, String productDescription, String productPrice, String productImage) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;

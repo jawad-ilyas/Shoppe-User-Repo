@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AmindFolder.CategoryPageActivityAdmin">
+    tools:context=".AdminFolder.CategoryPageActivityAdmin">
 
     <ImageView
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
         android:fontFamily="@font/nunito"
         android:text="@string/addCategory"
         style="@style/MyButtonStyle"
-        android:id="@+id/AddBrandIntoDataBase"
+        android:id="@+id/AddCategoryIntoDataBase"
         android:background="@drawable/fullwidth_button_backgroud"
         android:textStyle="normal" />
 </LinearLayout>

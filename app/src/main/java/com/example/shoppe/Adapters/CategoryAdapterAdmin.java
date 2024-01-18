@@ -1,38 +1,52 @@
 package com.example.shoppe.Adapters;
 
-public class CategoryAdapterAdmin {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-    String categoryName , categoryDescription , categoryImage;
-    CategoryAdapterAdmin(){
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-    }
-    public String getCategoryName() {
-        return categoryName;
-    }
+import com.bumptech.glide.Glide;
+import com.example.shoppe.Models.CategoryModelAdmin;
+import com.example.shoppe.R;
+import com.example.shoppe.databinding.CategorySingleLayoutFragmentAdminBinding;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
+public class CategoryAdapterAdmin extends FirebaseRecyclerAdapter<CategoryModelAdmin, CategoryAdapterAdmin.CategoryViewHolder> {
 
-    public String getCategoryDescription() {
-        return categoryDescription;
-    }
 
-    public void setCategoryDescription(String categoryDescription) {
-        this.categoryDescription = categoryDescription;
-    }
 
-    public String getCategoryImage() {
-        return categoryImage;
+    public CategoryAdapterAdmin(@NonNull FirebaseRecyclerOptions<CategoryModelAdmin> options) {
+        super(options);
     }
 
-    public void setCategoryImage(String categoryImage) {
-        this.categoryImage = categoryImage;
+    @Override
+    protected void onBindViewHolder(@NonNull CategoryViewHolder holder, int position, @NonNull CategoryModelAdmin model) {
+        holder.binding.categoryDescription.setText(model.getCategoryDescription());
+        holder.binding.categoryName.setText(model.getCategoryName());
+        Glide.with(holder.itemView.getContext()).
+                load(model.getCategoryImage()).into(holder.binding.categoryImage);
     }
 
-    public CategoryAdapterAdmin(String categoryName, String categoryDescription, String categoryImage) {
-        this.categoryName = categoryName;
-        this.categoryDescription = categoryDescription;
-        this.categoryImage = categoryImage;
+    @NonNull
+    @Override
+    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_single_layout_fragment_admin , parent, false);
+        return new CategoryViewHolder(view);
+    }
+
+    public class CategoryViewHolder extends RecyclerView.ViewHolder {
+
+
+        CategorySingleLayoutFragmentAdminBinding binding;
+        public CategoryViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            binding = CategorySingleLayoutFragmentAdminBinding.bind(itemView);
+
+        }
     }
 }
