@@ -105,9 +105,23 @@
         android:background="@drawable/fullwidth_button_backgroud"
         android:textStyle="normal" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:hint="Search Brand"
+        android:id="@+id/etSearchBrand"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Search Brand"
+        android:layout_gravity="center"
+        android:id="@+id/searchBrand"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
+        android:layout_marginBottom="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/brandFragmentRecyclerView"/>
 

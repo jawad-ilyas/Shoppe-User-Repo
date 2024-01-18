@@ -1,5 +1,6 @@
 package com.example.shoppe.Adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class BrandAdapterAdmin extends FirebaseRecyclerAdapter<BrandModelAdmin ,
     public class myBrandViewHolder extends RecyclerView.ViewHolder{
 
         BrandSingleLayoutBinding binding;
+
         public myBrandViewHolder(@NonNull View itemView) {
             super(itemView);
 

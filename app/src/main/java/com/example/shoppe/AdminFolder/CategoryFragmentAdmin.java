@@ -41,8 +41,17 @@ public class CategoryFragmentAdmin extends Fragment {
 
 
         binding = FragmentCategoryAdminBinding.inflate(inflater,container, false);
+        globalFunctions = new GlobalFunctions();  // Initialize globalFunctions
+        binding.searchCategory.setOnClickListener(v -> {
 
+            String query = binding.etSearchCategory.getText().toString().trim();
+            adapter =   globalFunctions.searchDataFromFireBase(binding.CategoryFragmentRecyclerView ,categoryDetail ,
+                    context ,CategoryModelAdmin.class ,  CategoryAdapterAdmin.class ,
+                    "categoryName" ,  query);
 
+            adapter.startListening();
+
+        });
 
         binding.moveToCategoryPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +62,7 @@ public class CategoryFragmentAdmin extends Fragment {
 
             }
         });
-        globalFunctions = new GlobalFunctions();  // Initialize globalFunctions
+
 
         adapter =  globalFunctions.fetchDataFromFireBase(binding.CategoryFragmentRecyclerView ,categoryDetail ,
                 context , CategoryModelAdmin.class ,  CategoryAdapterAdmin.class );

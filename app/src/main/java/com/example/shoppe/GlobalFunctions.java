@@ -3,6 +3,7 @@ package com.example.shoppe;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -98,10 +99,7 @@ public class GlobalFunctions {
             // Use reflection to create an instance of the adapter
             A adapter = adapterClass.getConstructor(FirebaseRecyclerOptions.class)
                     .newInstance(options);
-
             recyclerView.setAdapter((RecyclerView.Adapter) adapter);
-
-            ((RecyclerView.Adapter<?>) adapter).notifyDataSetChanged();
             return adapter;
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,5 +109,39 @@ public class GlobalFunctions {
         return null;
     };
 
+    public <T , A> A  searchDataFromFireBase(RecyclerView recyclerView , String firebasePath
+            , Context context , Class<T> modelClass ,Class<A> adapterClass ,String ColumnName,  String search ){
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child(firebasePath).orderByChild(ColumnName).startAt(search).endAt(search + "\uf8ff");
+
+        Log.d("QUERY", ""+ query);
+        FirebaseRecyclerOptions<T> options =
+                new FirebaseRecyclerOptions.Builder<T>()
+                        .setQuery(query, modelClass)
+                        .build();
+
+        try {
+            // Use reflection to create an instance of the adapter
+            A adapter = adapterClass.getConstructor(FirebaseRecyclerOptions.class)
+                    .newInstance(options);
+
+
+            Log.d("adapter", ""+ adapter);
+
+
+            recyclerView.setAdapter((RecyclerView.Adapter) adapter);
+            return  adapter;
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception accordingly
+        }
+        return null;
+
+    };
 
 }

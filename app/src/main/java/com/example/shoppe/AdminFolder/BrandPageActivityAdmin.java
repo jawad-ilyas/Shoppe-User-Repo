@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -80,23 +81,24 @@ public class BrandPageActivityAdmin extends AppCompatActivity {
                     @Override
                     public void onSuccess(BrandModelAdmin data) {
                         // Handle success with CategoryModelAdmin data
-
+                        Toast.makeText(getApplicationContext(), "data upload " + data , Toast.LENGTH_SHORT).show();;
                         if (adapter != null) {
-                            adapter.notifyDataSetChanged();
-
-
+                            adapter.startListening();
                         }
-                        Toast.makeText(getApplicationContext(), "data upload " , Toast.LENGTH_SHORT).show();;
 
                     }
 
                     @Override
                     public void onFailure(Exception e) {
                         // Handle failure
-                        Toast.makeText(getApplicationContext(), "data upload failed " , Toast.LENGTH_SHORT).show();;
+                        Toast.makeText(getApplicationContext(), "data upload failed " + e , Toast.LENGTH_SHORT).show();;
 
                     }
                 });
+
+                startActivity(new Intent(BrandPageActivityAdmin.this , BrandFragmentAdmin.class));
+
+                finish();
 
 
             }

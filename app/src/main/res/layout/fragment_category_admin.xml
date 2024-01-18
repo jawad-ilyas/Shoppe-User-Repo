@@ -104,7 +104,18 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/fullwidth_button_backgroud"
         android:textStyle="normal" />
-
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:hint="Search Category"
+        android:id="@+id/etSearchCategory"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Search Category"
+        android:layout_gravity="center"
+        android:id="@+id/searchCategory"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
