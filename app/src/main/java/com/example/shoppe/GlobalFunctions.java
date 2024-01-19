@@ -99,6 +99,11 @@ public class GlobalFunctions {
             // Use reflection to create an instance of the adapter
             A adapter = adapterClass.getConstructor(FirebaseRecyclerOptions.class)
                     .newInstance(options);
+
+
+
+            ((RecyclerView.Adapter<?>) adapter).notifyDataSetChanged();
+
             recyclerView.setAdapter((RecyclerView.Adapter) adapter);
             return adapter;
         } catch (Exception e) {
