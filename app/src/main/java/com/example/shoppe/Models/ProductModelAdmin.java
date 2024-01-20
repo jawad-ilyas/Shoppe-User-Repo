@@ -1,4 +1,4 @@
-package com.example.shoppe.Adapters;
+package com.example.shoppe.Models;
 
 public class ProductModelAdmin {
 

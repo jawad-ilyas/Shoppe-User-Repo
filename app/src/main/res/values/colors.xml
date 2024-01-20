@@ -4,7 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#004CFF</color>
     <color name="lightWhite">#F3F3F3</color>
-    <color name="lightDark">#202020</color>
+    <color name="lightDark">#9C202020</color>
+    <color name="lightlightDark">#9C403E3E</color>
     <color name="fieldsColor">#F8F8F8</color>
     <color name="lightPink">#FFEBEB</color>
     <color name="lightPrimary">#E5EBFC</color>

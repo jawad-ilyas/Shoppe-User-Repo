@@ -67,12 +67,12 @@ public class BrandFragmentAdmin extends Fragment {
 
 
 
-        binding.moveToBrandPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), BrandPageActivityAdmin.class));
-            }
-        });
+//        binding.moveToBrandPage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getContext(), BrandPageActivityAdmin.class));
+//            }
+//        });
 
 
 

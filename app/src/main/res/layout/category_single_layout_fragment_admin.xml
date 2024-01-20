@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:background="@color/lightPink"
+            style="@style/reyclerViewDesign"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -29,6 +29,13 @@
                 android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:id="@+id/categoryName"
@@ -38,7 +45,28 @@
                     android:id="@+id/categoryDescription"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+                <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/update"
+                        android:src="@drawable/edit_3_svgrepo_com"/>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:id="@+id/delete"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/delete_svgrepo_com"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>

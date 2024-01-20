@@ -13,8 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.shoppe.Adapters.ProductModelAdmin;
-import com.example.shoppe.R;
+import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.databinding.ActivityProductPageAdminBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    android:background="@color/white"
+    style="@style/ActivityBackground"
+
     tools:context=".MainActivity">
 
     <!--  image  -->

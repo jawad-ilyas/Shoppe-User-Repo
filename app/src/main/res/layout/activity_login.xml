@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/ActivityBackground"
 
     tools:context=".LoginActivity">
 
@@ -51,7 +52,7 @@
             android:text="@string/Goodtoseeyouback"
             android:textSize="20sp"
             android:layout_marginStart="10dp"
-
+            style="@style/simpleColorBlackWhite"
             android:layout_height="wrap_content"/>
         <ImageView
             android:layout_width="wrap_content"

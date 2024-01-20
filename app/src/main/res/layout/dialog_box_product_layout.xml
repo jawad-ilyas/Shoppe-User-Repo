@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:orientation="vertical"
+    style="@style/ActivityBackground"
+
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:id="@+id/dialogImage"
+        android:src="@drawable/admin_img"
+        android:layout_gravity="center"
+        android:layout_height="100dp"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Name"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/dialogName"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Description"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/dialogDescription"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginVertical="20dp"
+        android:hint="Price"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/dialogPrice"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</LinearLayout>

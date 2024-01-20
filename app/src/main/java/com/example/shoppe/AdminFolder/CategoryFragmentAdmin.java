@@ -53,15 +53,15 @@ public class CategoryFragmentAdmin extends Fragment {
 
         });
 
-        binding.moveToCategoryPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext() , CategoryPageActivityAdmin.class));
-
-
-
-            }
-        });
+//        binding.moveToCategoryPage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getContext() , CategoryPageActivityAdmin.class));
+//
+//
+//
+//            }
+//        });
 
 
         adapter =  globalFunctions.fetchDataFromFireBase(binding.CategoryFragmentRecyclerView ,categoryDetail ,
