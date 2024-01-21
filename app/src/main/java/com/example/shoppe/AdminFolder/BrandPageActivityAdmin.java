@@ -96,7 +96,6 @@ public class BrandPageActivityAdmin extends AppCompatActivity {
                     }
                 });
 
-                startActivity(new Intent(BrandPageActivityAdmin.this , BrandFragmentAdmin.class));
 
                 finish();
 

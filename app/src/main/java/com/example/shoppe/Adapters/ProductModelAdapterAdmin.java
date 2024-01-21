@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +26,10 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
 
 
 
+    public interface onItemClicked{
+        void clickedItem(ProductModelAdmin data );
+    }
+    onItemClicked clicked;
     public ProductModelAdapterAdmin(@NonNull FirebaseRecyclerOptions<ProductModelAdmin> options) {
         super(options);
     }
@@ -43,7 +48,23 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
                 .error(R.drawable.upload_image_avatar)  // You can use an error drawable if Glide fails to load the image
                 .into(holder.binding.productImage);
 
+
+
+
+
+
         Context context = holder.binding.productDescription.getContext();
+        clicked = (onItemClicked) context;
+
+        holder.itemView.setOnClickListener(v -> {
+            if (clicked != null) {
+                Toast.makeText(context, "Item clicked", Toast.LENGTH_SHORT).show();
+                clicked.clickedItem(new ProductModelAdmin(model.getProductName(),
+                        model.getProductDescription(),
+                        model.getProductPrice(),model.getProductImage() ));
+            }
+        });
+
         holder.binding.update.setOnClickListener(v -> {
 
 

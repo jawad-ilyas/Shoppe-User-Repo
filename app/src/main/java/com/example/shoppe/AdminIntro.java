@@ -6,16 +6,19 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.shoppe.Adapters.ProductModelAdapterAdmin;
 import com.example.shoppe.AdminFolder.BrandFragmentAdmin;
 import com.example.shoppe.AdminFolder.CategoryFragmentAdmin;
 import com.example.shoppe.AdminFolder.HomeAdminFragment;
 import com.example.shoppe.AdminFolder.ProductFragmentAdmin;
+import com.example.shoppe.AdminFolder.ShowSingleProductFragment;
+import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.databinding.ActivityAdminIntroBinding;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class AdminIntro extends AppCompatActivity {
+public class AdminIntro extends AppCompatActivity implements ProductModelAdapterAdmin.onItemClicked {
 
     ProductModelAdapterAdmin adapter;
     ActivityAdminIntroBinding binding;
@@ -24,6 +27,7 @@ public class AdminIntro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminIntroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
 
         replaceFragment(new HomeAdminFragment());
@@ -64,10 +68,20 @@ public class AdminIntro extends AppCompatActivity {
                 .replace(binding.layoutContainerForFragments.getId(), fragment)
                 .commit();
     }
+    private void replaceFragmentWithData(Fragment fragment ) {
 
 
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(binding.layoutContainerForFragments.getId(), fragment).addToBackStack(null)
+                .commit();
+    }
 
 
+    @Override
+    public void clickedItem(ProductModelAdmin data) {
 
+        replaceFragmentWithData(new ShowSingleProductFragment(data) );
+
+    }
 }

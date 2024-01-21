@@ -7,6 +7,7 @@
     <string name="createAccount">Create\nAccount</string>
     <string name="HelloUser">Hello User</string>
     <string name="detailAboutBrand">Enter Detail About Your Brand</string>
+    <string name="ShowdetailAboutBrand">Detail About Your Brand</string>
     <string name="detailAboutCategory">Enter Detail About Your Category</string>
     <string name="detailAboutProduct">Enter Detail About Your Product</string>
     <string name="Ready">Ready ?</string>
