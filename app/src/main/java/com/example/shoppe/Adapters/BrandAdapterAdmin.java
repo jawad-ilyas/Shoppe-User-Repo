@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoppe.GlobalFunctions;
+import com.example.shoppe.Interface.ItemClickedListener;
 import com.example.shoppe.Models.BrandModelAdmin;
+import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.R;
 import com.example.shoppe.databinding.BrandSingleLayoutBinding;
 import com.example.shoppe.databinding.DialogBoxLayoutBinding;
@@ -27,12 +29,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class BrandAdapterAdmin extends FirebaseRecyclerAdapter<BrandModelAdmin , BrandAdapterAdmin.myBrandViewHolder> {
+public class BrandAdapterAdmin extends FirebaseRecyclerAdapter<BrandModelAdmin ,
+        BrandAdapterAdmin.myBrandViewHolder> implements ItemClickedListener {
 
 
     public  BrandAdapterAdmin(@NonNull FirebaseRecyclerOptions<BrandModelAdmin> options) {
         super(options);
     }
+
+    @Override
+    public void brandItemSelected(BrandModelAdmin data) {}
+    ItemClickedListener clickedListener;
 
     @Override
     protected void onBindViewHolder(@NonNull myBrandViewHolder holder, int position, @NonNull BrandModelAdmin model) {
@@ -44,7 +51,16 @@ public class BrandAdapterAdmin extends FirebaseRecyclerAdapter<BrandModelAdmin ,
 
         Context context =  holder.binding.brandDescription.getContext();
 
+        clickedListener = (ItemClickedListener) context;
+        holder.itemView.setOnClickListener(v -> {
+            if (clickedListener != null) {
+                Toast.makeText(context, "Item clicked on Brand", Toast.LENGTH_SHORT).show();
 
+                clickedListener.brandItemSelected(new BrandModelAdmin(model.getBrandName(),
+                        model.getBrandDescription(),
+                        model.getBrandImage()));
+            }
+        });
         holder.binding.update.setOnClickListener(v -> {
             AlertDialog.Builder updateDialog = new AlertDialog.Builder(context );
             DialogBoxLayoutBinding dialogBinding = DialogBoxLayoutBinding.inflate(LayoutInflater.from(context));

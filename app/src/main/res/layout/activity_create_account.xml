@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
+    style="@style/ActivityBackground"
+
     tools:context=".CreateAccount">
 
 
@@ -21,40 +23,67 @@
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_marginStart="10dp"
+        android:id="@+id/adminImage"
+        android:layout_gravity="center"
         android:src="@drawable/upload_image_avatar"
         android:layout_height="wrap_content"/>
 
 
+
+    <EditText
+        android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+        android:hint="Name"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:id="@+id/adminName"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+        android:hint="Phone Number"
+        style="@style/fieldsStyle"
+        android:paddingVertical="12dp"
+        android:id="@+id/adminPhone"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
     <EditText
         android:layout_width="match_parent"
     android:layout_marginTop="20dp"
         android:hint="Email"
         style="@style/fieldsStyle"
         android:paddingVertical="12dp"
+        android:id="@+id/email"
         android:background="@drawable/fileds_backgroudn"
         android:layout_height="wrap_content"/>
-
     <EditText
         android:layout_width="match_parent"
         android:hint="Password"
         android:layout_marginTop="5dp"
         android:paddingVertical="12dp"
         style="@style/fieldsStyle"
+        android:id="@+id/password"
+
+        android:inputType="textPassword"
         android:background="@drawable/fileds_backgroudn"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:hint="Your Number"
+        android:hint="conform Password"
         style="@style/fieldsStyle"
+        android:inputType="textPassword"
+        android:id="@+id/conformPassword"
         android:paddingVertical="12dp"
         android:background="@drawable/fileds_backgroudn"
         android:layout_height="wrap_content"/>
 
 
     <Button
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito"

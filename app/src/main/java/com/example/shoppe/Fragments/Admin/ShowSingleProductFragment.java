@@ -1,4 +1,4 @@
-package com.example.shoppe.AdminFolder;
+package com.example.shoppe.Fragments.Admin;
 
 import android.os.Bundle;
 
@@ -19,7 +19,8 @@ public class ShowSingleProductFragment extends Fragment {
     ProductModelAdmin data;
     public ShowSingleProductFragment() {
         // Required empty public constructor
-    }    public ShowSingleProductFragment(ProductModelAdmin data) {
+    }
+    public ShowSingleProductFragment(ProductModelAdmin data) {
       this.data = data;
     }
 

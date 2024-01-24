@@ -29,7 +29,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-
+                    android:id="@+id/adminLoginImage"
 
 
                     android:src="@drawable/default_user" />
@@ -76,6 +76,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/exit"
                     android:background="@color/lightPrimary"
                     android:src="@drawable/baseline_message_24"/>
             </androidx.cardview.widget.CardView>
@@ -90,6 +91,7 @@
         android:text="@string/admin_name"
         style="@style/subHeadingStyle"
         android:layout_marginTop="15dp"
+        android:id="@+id/adminName"
         android:layout_marginBottom="15dp"
         android:layout_height="wrap_content"/>
 

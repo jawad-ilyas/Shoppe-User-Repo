@@ -8,19 +8,24 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.shoppe.Adapters.ProductModelAdapterAdmin;
 import com.example.shoppe.AdminFolder.BrandFragmentAdmin;
 import com.example.shoppe.AdminFolder.CategoryFragmentAdmin;
 import com.example.shoppe.AdminFolder.HomeAdminFragment;
 import com.example.shoppe.AdminFolder.ProductFragmentAdmin;
-import com.example.shoppe.AdminFolder.ShowSingleProductFragment;
+import com.example.shoppe.Fragments.Admin.ShowSingleBrandFragment;
+import com.example.shoppe.Fragments.Admin.ShowSingleCategoryFragment;
+import com.example.shoppe.Fragments.Admin.ShowSingleProductFragment;
+
+import com.example.shoppe.Interface.ItemClickedListener;
+import com.example.shoppe.Models.BrandModelAdmin;
+import com.example.shoppe.Models.CategoryModelAdmin;
 import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.databinding.ActivityAdminIntroBinding;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class AdminIntro extends AppCompatActivity implements ProductModelAdapterAdmin.onItemClicked {
+public class AdminIntro extends AppCompatActivity implements ItemClickedListener {
 
-    ProductModelAdapterAdmin adapter;
+
     ActivityAdminIntroBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +83,24 @@ public class AdminIntro extends AppCompatActivity implements ProductModelAdapter
     }
 
 
-    @Override
-    public void clickedItem(ProductModelAdmin data) {
 
+
+    @Override
+    public void productItemSelected(ProductModelAdmin data) {
         replaceFragmentWithData(new ShowSingleProductFragment(data) );
+    }
+
+    @Override
+    public void categoryItemSelected(CategoryModelAdmin data) {
+        Toast.makeText(this, ""+data.getCategoryName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, ""+data.getCategoryDescription(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, ""+data.getCategoryImage(), Toast.LENGTH_SHORT).show();
+        replaceFragmentWithData(new ShowSingleCategoryFragment(data));
+    }
+
+    @Override
+    public void brandItemSelected(BrandModelAdmin data) {
+        replaceFragmentWithData(new ShowSingleBrandFragment(data));
 
     }
 }

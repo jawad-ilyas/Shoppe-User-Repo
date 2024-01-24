@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoppe.GlobalFunctions;
+
+import com.example.shoppe.Interface.ItemClickedListener;
+import com.example.shoppe.Models.BrandModelAdmin;
+import com.example.shoppe.Models.CategoryModelAdmin;
 import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.R;
 import com.example.shoppe.databinding.DialogBoxProductLayoutBinding;
@@ -22,14 +26,15 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.HashMap;
 
-public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductModelAdmin, ProductModelAdapterAdmin.MyProductViewHodler> {
+    public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductModelAdmin,
+            ProductModelAdapterAdmin.MyProductViewHodler> implements ItemClickedListener {
+
+        @Override
+        public void productItemSelected(ProductModelAdmin data){}
+
+        ItemClickedListener clickedListener;
 
 
-
-    public interface onItemClicked{
-        void clickedItem(ProductModelAdmin data );
-    }
-    onItemClicked clicked;
     public ProductModelAdapterAdmin(@NonNull FirebaseRecyclerOptions<ProductModelAdmin> options) {
         super(options);
     }
@@ -41,6 +46,12 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
         holder.binding.productName.setText(model.getProductName());
         holder.binding.productPrice.setText(model.getProductPrice());
         holder.binding.productDescription.setText(model.getProductDescription());
+
+
+
+
+
+
         // Load image using Glide
         Glide.with(holder.itemView.getContext())
                 .load(model.getProductImage())  // Assuming that model.getImagePath() returns the URL or URI of the image
@@ -54,12 +65,12 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
 
 
         Context context = holder.binding.productDescription.getContext();
-        clicked = (onItemClicked) context;
+        clickedListener = (ItemClickedListener) context;
 
         holder.itemView.setOnClickListener(v -> {
-            if (clicked != null) {
+            if (clickedListener != null) {
                 Toast.makeText(context, "Item clicked", Toast.LENGTH_SHORT).show();
-                clicked.clickedItem(new ProductModelAdmin(model.getProductName(),
+                clickedListener.productItemSelected(new ProductModelAdmin(model.getProductName(),
                         model.getProductDescription(),
                         model.getProductPrice(),model.getProductImage() ));
             }
@@ -67,8 +78,6 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
 
         holder.binding.update.setOnClickListener(v -> {
 
-
-//            String productName = model.getProductDescription();
 
             GlobalFunctions globalFunctions = new GlobalFunctions();
             DialogBoxProductLayoutBinding productLayoutBinding;
@@ -87,11 +96,15 @@ public class ProductModelAdapterAdmin extends FirebaseRecyclerAdapter<ProductMod
                     .placeholder(R.drawable.admin_img)  // You can use a placeholder drawable while the image is loading
                     .error(R.drawable.upload_image_avatar)  // You can use an error drawable if Glide fails to load the image
                     .into(productLayoutBinding.dialogImage);
-            updateDialog.setPositiveButton("Update", (((dialog, which) -> {
+                    updateDialog.setPositiveButton("Update", (((dialog, which) -> {
+
+
+
 
                 String productName = globalFunctions.FieldText(productLayoutBinding.dialogName);
                 String productPrice = globalFunctions.FieldText(productLayoutBinding.dialogDescription);
                 String productDescription = globalFunctions.FieldText(productLayoutBinding.dialogPrice);
+
 
 
                 HashMap<String , Object> hashMap = new HashMap<>();

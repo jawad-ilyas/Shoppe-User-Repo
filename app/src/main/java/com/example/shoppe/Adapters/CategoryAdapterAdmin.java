@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoppe.GlobalFunctions;
+import com.example.shoppe.Interface.ItemClickedListener;
+import com.example.shoppe.Models.BrandModelAdmin;
 import com.example.shoppe.Models.CategoryModelAdmin;
+import com.example.shoppe.Models.ProductModelAdmin;
 import com.example.shoppe.R;
 import com.example.shoppe.databinding.CategorySingleLayoutFragmentAdminBinding;
 import com.example.shoppe.databinding.DialogBoxLayoutBinding;
@@ -22,10 +25,15 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.HashMap;
 
-public class CategoryAdapterAdmin extends FirebaseRecyclerAdapter<CategoryModelAdmin, CategoryAdapterAdmin.CategoryViewHolder> {
+public class CategoryAdapterAdmin extends FirebaseRecyclerAdapter<CategoryModelAdmin,
+        CategoryAdapterAdmin.CategoryViewHolder> implements ItemClickedListener {
 
 
 
+    public void categoryItemSelected(CategoryModelAdmin data){};
+
+
+    ItemClickedListener clickedListener;
     public CategoryAdapterAdmin(@NonNull FirebaseRecyclerOptions<CategoryModelAdmin> options) {
         super(options);
     }
@@ -39,6 +47,19 @@ public class CategoryAdapterAdmin extends FirebaseRecyclerAdapter<CategoryModelA
 
 
         Context context = holder.binding.categoryDescription.getContext();
+        clickedListener = (ItemClickedListener) context;
+
+        // clicked listener
+        holder.itemView.setOnClickListener(v -> {
+            Toast.makeText(context, "Item clicked on Category", Toast.LENGTH_SHORT).show();
+
+            if (clickedListener != null) {
+
+                clickedListener.categoryItemSelected(new CategoryModelAdmin(model.getCategoryName(),
+                        model.getCategoryDescription(),
+                        model.getCategoryImage()));
+            }
+        });
         holder.binding.update.setOnClickListener( v -> {
 
 

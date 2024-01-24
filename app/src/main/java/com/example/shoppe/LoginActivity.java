@@ -20,8 +20,16 @@ public class LoginActivity extends AppCompatActivity {
         binding.moveToPassowrdActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, Password.class));
-                finish();
+                GlobalFunctions globalFunctions = new GlobalFunctions();
+                String email = globalFunctions.FieldText(binding.email);
+                if (!globalFunctions.validateField(email, binding.email, "Email is required")) {
+                    return;
+                }else {
+                    Intent intent = new Intent(LoginActivity.this, Password.class);
+                    intent.putExtra("email",email );
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
