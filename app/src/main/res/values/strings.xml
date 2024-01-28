@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Shoppe Admin</string>
+    <string name="app_name">Shoppe User</string>
     <string name="admin_name">Hello Admin</string>
     <string name="options">Options</string>
     <string name="letsGetStarted">"Lets's get Started"</string>
     <string name="ialreadyHaveAnAcount">I already have an account </string>
-    <string name="createAccount">Create\nAccount</string>
+    <string name="createAccount">Create Account</string>
     <string name="HelloUser">Hello User</string>
     <string name="detailAboutBrand">Enter Detail About Your Brand</string>
     <string name="ShowdetailAboutBrand">Detail About Your Brand</string>

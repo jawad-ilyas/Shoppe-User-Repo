@@ -1,5 +1,7 @@
 package com.example.shoppe;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-        // move to create acount screen
+
             startActivity(new Intent(MainActivity.this , CreateAccount.class));
             finish();
             }
@@ -45,5 +47,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this , LoginActivity.class));
             finish();
         });
+
+
+
     }
 }

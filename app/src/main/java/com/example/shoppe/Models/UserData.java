@@ -1,9 +1,9 @@
 package com.example.shoppe.Models;
 
-public class AdminData {
+public class UserData {
     String adminName , adminPhone ,  email , password , adminImage;
 
-    public AdminData() {
+    public UserData() {
     }
 
     public String getAdminName() {
@@ -46,7 +46,7 @@ public class AdminData {
         this.adminImage = adminImage;
     }
 
-    public AdminData(String adminName, String adminPhone, String email, String password, String adminImage) {
+    public UserData(String adminName, String adminPhone, String email, String password, String adminImage) {
         this.adminName = adminName;
         this.adminPhone = adminPhone;
         this.email = email;

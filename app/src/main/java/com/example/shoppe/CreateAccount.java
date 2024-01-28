@@ -1,6 +1,8 @@
 package com.example.shoppe;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,18 +16,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.shoppe.Models.AdminData;
+import com.example.shoppe.Models.UserData;
+import com.example.shoppe.UserPages.UserIntro;
 import com.example.shoppe.databinding.ActivityCreateAccountBinding;
-import com.example.shoppe.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,18 +46,36 @@ public class CreateAccount extends AppCompatActivity {
         binding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setup the back button
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(CreateAccount.this , MainActivity.class));
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this , callback);
 
-        ActivityResultLauncher<String> mGetContext = registerForActivityResult(new ActivityResultContracts.GetContent(),
 
-                    uri-> {
+
+
+        // Registers a photo picker activity launcher in single-select mode.
+        ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
+                registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
+                    // Callback is invoked after the user selects a media item or closes the
+                    // photo picker.
+                    if (uri != null) {
                         Glide.with(this).load(uri).into(binding.adminImage);
                         imageResource = uri;
-                    });
-
-        // admin image
-        binding.adminImage.setOnClickListener( v1 -> {
-            mGetContext.launch("image/*");
-
+                        Log.d("PhotoPicker", "Selected URI: " + uri);
+                    } else {
+                        Log.d("PhotoPicker", "No media selected");
+                    }
+                });
+        binding.adminImage.setOnClickListener( v -> {
+            String mimeType = "image/*";
+            pickMedia.launch(new PickVisualMediaRequest.Builder()
+                    .setMediaType(new ActivityResultContracts.PickVisualMedia.SingleMimeType(mimeType))
+                    .build());
         });
 
         binding.moveToLoginActiv.setOnClickListener(new View.OnClickListener() {
@@ -104,10 +121,10 @@ public class CreateAccount extends AppCompatActivity {
                                             // Sign up success, update UI with the signed-in user's information
                                             user = mAuth.getCurrentUser();
                                             FirebaseDatabase db = FirebaseDatabase.getInstance();
-                                           DatabaseReference adminInfo =db.getReference("AdminInfo/");
+                                           DatabaseReference adminInfo =db.getReference("UserInfo/");
 
                                             FirebaseStorage storage = FirebaseStorage.getInstance();
-                                            StorageReference reference = storage.getReference("AdminImages/"+user.getUid());
+                                            StorageReference reference = storage.getReference("UserImages/"+user.getUid());
 
                                             reference.putFile(imageResource).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                                 @Override
@@ -117,14 +134,14 @@ public class CreateAccount extends AppCompatActivity {
                                                         @Override
                                                         public void onSuccess(Uri uri) {
 
-                                                            AdminData data= new AdminData(adminName, adminPhone , email , password , uri.toString());
+                                                            UserData data= new UserData(adminName, adminPhone , email , password , uri.toString());
                                                             adminInfo.child(user.getUid()).setValue(data);
                                                             SharedPreferences preferences = getSharedPreferences( "loginInfo" , MODE_PRIVATE);
                                                             SharedPreferences.Editor editor = preferences.edit();
                                                             editor.putString("email", user.getEmail());
                                                             editor.putString("userId", user.getUid());
                                                             editor.apply();
-                                                            startActivity(new Intent(CreateAccount.this , AdminIntro.class));
+                                                            startActivity(new Intent(CreateAccount.this , UserIntro.class));
                                                             finish();
                                                         }
                                                     });
@@ -132,7 +149,7 @@ public class CreateAccount extends AppCompatActivity {
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    Log.e("CreateAccount", "Failed to store admin information: " + task.getException().getMessage());
+                                                    Log.e("CreateAccount", "Failed to store User information: " + task.getException().getMessage());
 
                                                 }
                                             });

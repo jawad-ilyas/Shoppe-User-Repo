@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.shoppe.UserPages.UserIntro;
 import com.example.shoppe.databinding.ActivityPasswordBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -55,7 +56,7 @@ public class Password extends AppCompatActivity {
                               if (task.isSuccessful()) {
                                   // Sign up success, update UI with the signed-in user's information
                                   FirebaseUser user = auth.getCurrentUser();
-                                  Intent intent = new Intent(Password.this , AdminIntro.class);
+                                  Intent intent = new Intent(Password.this , UserIntro.class);
                                   intent.putExtra("email", user.getEmail());
                                   intent.putExtra("userId", user.getUid());
                                   SharedPreferences preferences = getSharedPreferences( "loginInfo" , MODE_PRIVATE);

@@ -1,5 +1,6 @@
 package com.example.shoppe;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
+
+        //setup the back button
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(LoginActivity.this , MainActivity.class));
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this , callback);
 
         binding.moveToPassowrdActivity.setOnClickListener(new View.OnClickListener() {
             @Override
