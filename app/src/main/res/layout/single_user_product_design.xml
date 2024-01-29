@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp"
+                android:background="@color/lightDark"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+
+                    android:layout_margin="8dp"
+                    android:src="@drawable/areeqahaq"
+                    android:id="@+id/productImage"
+                    android:layout_height="200dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Product Name"
+
+                android:textStyle="bold"
+                android:id="@+id/productName"
+                android:paddingStart="10dp"
+                style="@style/subHeadingStyle"
+                android:layout_gravity="start"
+                android:layout_marginTop="1dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Lorem ipsum dolor sit amet consectetur."
+                android:id="@+id/productDescription"
+                android:textSize="15sp"
+                android:paddingStart="10dp"
+
+                android:layout_gravity="start"
+
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingStart="6dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/dollor_"
+                    android:layout_height="25dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:text="12,00"
+                    android:id="@+id/productPrice"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+</LinearLayout>

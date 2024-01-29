@@ -82,16 +82,12 @@ public class GlobalFunctions {
         });
     }
 
-    public <T , A> A  fetchDataFromFireBase(RecyclerView recyclerView , String firebasePath  , Context context , Class<T> modelClass ,Class<A> adapterClass ){
+    public <T , A> A  fetchDataFromFireBase(RecyclerView recyclerView , String firebasePath  , Context context , Class<T> modelClass ,Class<A> adapterClass ) {
 
 
-//        if(firebasePath == "productsDetail/")
-//        {
-//            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-//        }else {
-//            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//        }
-
+        if(firebasePath == "productsDetail/")
+            recyclerView.setLayoutManager(new GridLayoutManager(context , 2));
+        else
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
 
@@ -111,7 +107,6 @@ public class GlobalFunctions {
                     .newInstance(options);
 
 
-
             ((RecyclerView.Adapter<?>) adapter).notifyDataSetChanged();
 
             recyclerView.setAdapter((RecyclerView.Adapter) adapter);
@@ -122,7 +117,9 @@ public class GlobalFunctions {
         }
 
         return null;
-    };
+    }
+
+
 
     public <T , A> A  searchDataFromFireBase(RecyclerView recyclerView , String firebasePath
             , Context context , Class<T> modelClass ,Class<A> adapterClass ,String ColumnName,  String search ){

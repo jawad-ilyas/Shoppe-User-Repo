@@ -4,17 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
+    android:orientation="vertical"
     tools:context=".UserPages.UserFragments.HomeUserFragement">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         style="@style/subHeadingStyle"
         android:text="All Items" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/homeProductUserRecyclerView"
+        tools:listitem="@layout/single_product_design"
+        android:layout_marginBottom="60dp"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
