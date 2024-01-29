@@ -8,7 +8,7 @@ import com.example.shoppe.UserPages.UserModel.HomeUserModel;
 public interface ItemClickedListener {
 
     default  void  productItemSelected(ProductModelAdmin data){}
-    default  void  productItemSelectedUser(HomeUserModel data){}
+    default  void  productItemSelectedUser(String nodeId , HomeUserModel data){}
     default  void categoryItemSelected(CategoryModelAdmin data){}
     default  void brandItemSelected(BrandModelAdmin data){}
 }

@@ -1,14 +1,21 @@
 package com.example.shoppe.UserPages;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 import com.example.shoppe.Interface.ItemClickedListener;
+import com.example.shoppe.LoginActivity;
+import com.example.shoppe.MainActivity;
 import com.example.shoppe.R;
 import com.example.shoppe.UserPages.SingleScreen.SingleProductFragment;
 import com.example.shoppe.UserPages.UserFragments.HomeUserFragement;
@@ -48,6 +55,7 @@ public class UserIntro extends AppCompatActivity implements ItemClickedListener 
                     replaceFragment(new ProfileUserFragment());
                     return  true;
                 }
+                showBottomNavigationView();
                 return false;
             }
         });
@@ -59,15 +67,44 @@ public class UserIntro extends AppCompatActivity implements ItemClickedListener 
     void replaceFragment(Fragment fragment){
 
         getSupportFragmentManager().beginTransaction().replace(binding.userContainer.getId() , fragment).commit();
+
     }
-    void replaceFragmentWithStack(Fragment fragment)
-    {
-        getSupportFragmentManager().beginTransaction().replace(binding.userContainer.getId() , fragment).addToBackStack(null).commit();
+    void replaceFragmentWithStack(Fragment fragment) {
+        hideBottomNavigationView();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(binding.userContainer.getId(), fragment)
+                .addToBackStack(null)
+                .commit();
     }
+
+
+
+
+
+
+
 
     @Override
-    public void productItemSelectedUser(HomeUserModel data) {
-        replaceFragmentWithStack(new SingleProductFragment(data));
+    public void productItemSelectedUser(String nodeId , HomeUserModel data) {
+        replaceFragmentWithStack(new SingleProductFragment(nodeId , data));
 
     }
+    private void hideBottomNavigationView() {
+        binding.userBottomNaviagtion.setVisibility(View.GONE);
+    }
+
+    private void showBottomNavigationView() {
+        binding.userBottomNaviagtion.setVisibility(View.VISIBLE);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        showBottomNavigationView();
+        super.onBackPressed();
+    }
+
+// To enable the callback
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,47 +11,109 @@
         android:layout_width="match_parent"
         android:id="@+id/productImage"
 
+        android:src="@drawable/areeqahaq"
         android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/productImage"
+
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/detailView"
+
+                android:paddingHorizontal="15dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginTop="1dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/dollor_"
+                        tools:src="@drawable/dollor_white"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="-7dp"
+                        android:text="12,00"
+                        style="@style/subHeadingStyle"
+                        android:id="@+id/productPrice"
+
+                        android:layout_height="wrap_content"/>
+
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/productDescription"
+                    android:layout_marginStart="5dp"
+                    android:text="lorem lorem lorem "
+                    android:textSize="15dp"
+
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="10dp"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:paddingHorizontal="15dp"
+
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="3dp"
+
+            android:paddingHorizontal="15dp"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_marginTop="1dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/dollor_"
-                tools:src="@drawable/dollor_white"
-                />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/wishlist"
+                android:src="@drawable/heart_empty"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/AddtoCard"
 
-            <TextView
-                android:layout_width="match_parent"
-android:layout_marginStart="-7dp"
-                android:text="12,00"
-                style="@style/subHeadingStyle"
-                android:id="@+id/productPrice"
+                android:text="Add To Card"
+                android:layout_marginStart="30dp"
+
+
+                style="@style/myCustomAddToCardButton"
+                android:background="@drawable/black_backgroun_btn"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/buyNow"
+                android:text="Buy Now"
+
+                android:layout_marginStart="10dp"
+                android:background="@drawable/black_backgroun_btn"
 
                 android:layout_height="wrap_content"/>
 
 
 
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:id="@+id/productDescription"
-             android:layout_marginStart="5dp"
-            android:text="lorem lorem lorem "
-            android:textSize="15dp"
-            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

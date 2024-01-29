@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,8 +26,8 @@ public class HomeUserAdapter extends FirebaseRecyclerAdapter<HomeUserModel,
 
 
     @Override
-    public void productItemSelectedUser(HomeUserModel data) {
-        ItemClickedListener.super.productItemSelectedUser(data);
+    public void productItemSelectedUser(String nodeId , HomeUserModel data) {
+        ItemClickedListener.super.productItemSelectedUser( nodeId, data);
     }
 
     ItemClickedListener itemClicked ;
@@ -58,8 +59,12 @@ public class HomeUserAdapter extends FirebaseRecyclerAdapter<HomeUserModel,
         Context customContext = holder.binding.productDescription.getContext();
         itemClicked = (ItemClickedListener )customContext;
 
+
+
         holder.itemView.setOnClickListener( v -> {
-            itemClicked.productItemSelectedUser(model);
+            String nodeId = getRef(position).getKey();
+            Toast.makeText(customContext, "" + nodeId, Toast.LENGTH_SHORT).show();
+            itemClicked.productItemSelectedUser(nodeId,model);
         });
 
     }

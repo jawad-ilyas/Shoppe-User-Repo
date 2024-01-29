@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.shoppe.AdminFolder.HomeAdminFragment;
+import com.example.shoppe.UserPages.UserIntro;
 import com.example.shoppe.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(email != "")
         {
-            startActivity(new Intent(MainActivity.this , AdminIntro.class));
+            startActivity(new Intent(MainActivity.this , UserIntro.class));
         }
 
         binding.moveToCreateAcount.setOnClickListener(new View.OnClickListener() {
