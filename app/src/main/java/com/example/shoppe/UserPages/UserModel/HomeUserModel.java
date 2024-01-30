@@ -4,6 +4,7 @@ public class HomeUserModel {
 
     String productName , productDescription  , productPrice , productImage;
 
+
     public HomeUserModel() {
 
     }
@@ -14,6 +15,7 @@ public class HomeUserModel {
         this.productPrice = productPrice;
         this.productImage = productImage;
     }
+
 
     public String getProductName() {
         return productName;

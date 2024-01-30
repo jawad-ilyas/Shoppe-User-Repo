@@ -39,6 +39,7 @@ public class ShopUserAdapter extends FirebaseRecyclerAdapter<ShopUserModel,
     protected void onBindViewHolder(@NonNull UserHomeViewHolder holder, int position, @NonNull ShopUserModel model) {
         holder.binding.productName.setText(model.getProductName());
         holder.binding.productPrice.setText(model.getProductPrice());
+        holder.binding.productQuantity.setText(  String.valueOf(   model.getProductQuantity()));
         String fullDescription = model.getProductDescription();
         String[] words = fullDescription.split("\\s+"); // Split the description into words
 

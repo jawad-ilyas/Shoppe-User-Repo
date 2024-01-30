@@ -87,6 +87,23 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingStart="6dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/dollor_"
+                    android:layout_height="15dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="12dp"
+                    android:text="12,00"
+                    android:id="@+id/productQuantity"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -13,9 +13,14 @@ import com.bumptech.glide.Glide;
 import com.example.shoppe.R;
 
 import com.example.shoppe.UserPages.UserModel.HomeUserModel;
+import com.example.shoppe.UserPages.UserModel.ShopUserModel;
 import com.example.shoppe.databinding.FragmentSingleProductBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,13 +78,60 @@ public class SingleProductFragment extends Fragment {
 
             if(nodeId != "")
             {
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference reference = database.getReference().child("AddToCart/");
+//                String uniqueName = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() ;
+//                HomeUserModel model = new HomeUserModel(data.getProductName() ,
+//                        data.getProductDescription() , data.getProductPrice() ,
+//                        data.getProductImage());
+//
+//                reference.child(uniqueName).setValue(model);
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference().child("AddToCart/");
-                String uniqueName = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() ;
-                HomeUserModel model = new HomeUserModel(data.getProductName() , data.getProductDescription() , data.getProductPrice() , data.getProductImage());
-                // Use push to generate a unique key for each item
-                reference.child(uniqueName).setValue(model);
 
+                // Assuming data.getProductName() contains the product name you want to check
+                String productNameToCheck = data.getProductName();
+
+                // Query to check if the productName already exists
+                Query query = reference.orderByChild("productName").equalTo(productNameToCheck);
+
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            Toast.makeText(getContext(), "" + "item is already exists", Toast.LENGTH_SHORT).show();
+
+
+                            HomeUserModel model = new HomeUserModel(data.getProductName(),
+                                    data.getProductDescription(), data.getProductPrice(),
+                                    data.getProductImage());
+
+                            String existingProductId = dataSnapshot.getChildren().iterator().next().getKey();
+                            int productQuantity = dataSnapshot.child(existingProductId).child("productQuantity").getValue(int.class);
+                            String productPrice = dataSnapshot.child(existingProductId).child("productPrice").getValue(String.class);
+                            int convertedProductPrice = Integer.parseInt(productPrice);
+                            int totalPrice = productQuantity * convertedProductPrice;
+                            reference.child(existingProductId).child("productQuantity").setValue(productQuantity + 1 );
+                            reference.child(existingProductId).child("productPrice").setValue(String.valueOf(totalPrice));
+                            reference.child(existingProductId).child("totalPrice").setValue(totalPrice );
+
+                        } else {
+                            // Product with the same name does not exist, proceed with insertion
+                            String uniqueName = UUID.randomUUID().toString() + "_" + System.currentTimeMillis();
+                            ShopUserModel model = new ShopUserModel(data.getProductName(),
+                                    data.getProductDescription(), data.getProductPrice(),
+                                    data.getProductImage() , 1);
+
+                            reference.child(uniqueName).setValue(model);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle errors
+                    }
+                });
 
 
             }else {

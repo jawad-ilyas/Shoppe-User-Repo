@@ -3,7 +3,7 @@ package com.example.shoppe.UserPages.UserModel;
 public class ShopUserModel {
 
     String productName , productDescription  , productPrice , productImage;
-
+    int productQuantity  = 0 ;
     public ShopUserModel() {
 
     }
@@ -13,6 +13,14 @@ public class ShopUserModel {
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productImage = productImage;
+    }
+    public ShopUserModel(String productName, String productDescription, String productPrice,
+                         String productImage ,int productQuantity) {
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+        this.productImage = productImage;
+        this.productQuantity = productQuantity;
     }
 
     public String getProductName() {
@@ -41,6 +49,9 @@ public class ShopUserModel {
 
     public String getProductImage() {
         return productImage;
+    }
+    public int getProductQuantity() {
+        return productQuantity;
     }
 
     public void setProductImage(String productImage) {
