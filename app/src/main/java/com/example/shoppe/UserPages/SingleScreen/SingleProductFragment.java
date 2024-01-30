@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.shoppe.R;
-import com.example.shoppe.UserPages.UserHomeModel;
+
 import com.example.shoppe.UserPages.UserModel.HomeUserModel;
 import com.example.shoppe.databinding.FragmentSingleProductBinding;
 import com.google.firebase.database.DatabaseReference;
