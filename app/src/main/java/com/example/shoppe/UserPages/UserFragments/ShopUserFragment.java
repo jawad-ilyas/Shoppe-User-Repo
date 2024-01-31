@@ -53,6 +53,23 @@ public class ShopUserFragment extends Fragment implements ItemClickedListener {
 
 
 
+        String totalPrice = binding.setTotalPrice.getText().toString();
+
+
+
+
+        if(totalPrice.equals("Total"))
+        {
+//            Toast.makeText(getContext(), "if " + totalPrice, Toast.LENGTH_SHORT).show();
+            binding.checkoutPage.setEnabled(false);
+            binding.CheckoutTitle.setText("No Item Add To Cart");
+        }
+        else{
+            binding.checkoutPage.setEnabled(true);
+            binding.CheckoutTitle.setText("Items into cart");
+        }
+
+
 
         binding.checkoutPage.setOnClickListener(v -> {
 
@@ -72,6 +89,13 @@ public class ShopUserFragment extends Fragment implements ItemClickedListener {
     public void TotalPriceIntoCart(int price) {
 //        Toast.makeText(getContext(), "i am total Price" + price, Toast.LENGTH_SHORT).show();
         binding.setTotalPrice.setText(String.valueOf(price));
+
+        if(price !=0)
+        {
+            binding.checkoutPage.setEnabled(true);
+            binding.CheckoutTitle.setText("Items into cart");
+        }
+
     }
     @Override
     public void onStart() {
