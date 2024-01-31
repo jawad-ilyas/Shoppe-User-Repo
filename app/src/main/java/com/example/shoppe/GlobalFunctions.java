@@ -82,14 +82,16 @@ public class GlobalFunctions {
         });
     }
 
-    public <T , A> A  fetchDataFromFireBase(RecyclerView recyclerView , String firebasePath  , Context context , Class<T> modelClass ,Class<A> adapterClass ) {
+    public <T , A> A  fetchDataFromFireBase(RecyclerView recyclerView , String firebasePath  , Context context , Class<T> modelClass ,Class<A> adapterClass , Boolean slider ) {
 
 
-        if(firebasePath == "productsDetail/")
+
+         if(slider == true)
+            recyclerView.setLayoutManager(new LinearLayoutManager(context  , LinearLayoutManager.HORIZONTAL ,false));
+         else
+             recyclerView.setLayoutManager(new LinearLayoutManager(context  ));
+         if(firebasePath == "productsDetail/")
             recyclerView.setLayoutManager(new GridLayoutManager(context , 2));
-        else
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference()

@@ -46,7 +46,7 @@ public class ProductFragmentAdmin extends Fragment {
         });
 
         adapter =  globalFunctions.fetchDataFromFireBase(binding.productRecyclerView,
-                productsDetail , getContext(), ProductModelAdmin.class , ProductModelAdapterAdmin.class);
+                productsDetail , getContext(), ProductModelAdmin.class , ProductModelAdapterAdmin.class  , false);
 
 
 

@@ -78,7 +78,7 @@ public class BrandFragmentAdmin extends Fragment {
 
 //        fetchDataFromFireBase();
        adapter =  globalFunctions.fetchDataFromFireBase(binding.brandFragmentRecyclerView ,brandDetail ,
-                context ,BrandModelAdmin.class ,  BrandAdapterAdmin.class );
+                context ,BrandModelAdmin.class ,  BrandAdapterAdmin.class  , false);
         adapter.startListening();
         return binding.getRoot();
     }

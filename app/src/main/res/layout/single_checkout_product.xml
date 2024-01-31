@@ -28,17 +28,6 @@
                     android:id="@+id/productImage"
                     android:layout_height="100dp"/>
 
-                <ImageButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="94dp"
-                    android:layout_marginBottom="15dp"
-                    android:id="@+id/deleteProductFromCart"
-                    android:baselineAlignBottom="true"
-                    android:src="@drawable/delete_svgrepo_com" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -105,7 +94,7 @@
                 <TextView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="---"
+                    android:text="Q"
                     android:gravity="center"
                     android:id="@+id/minusButton"
                     android:textSize="15dp"
@@ -117,9 +106,8 @@
                         android:id="@+id/productQuantity"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-
+                    android:layout_marginStart="-13dp"
                         android:textSize="15sp"
-                        android:background="@drawable/background_light_primary"
                         android:text="12,00"
                       android:layout_marginHorizontal="3dp"
 
@@ -127,16 +115,6 @@
                         android:gravity="center"/>
 
 
-                    <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:text="+"
-                        android:id="@+id/plusButton"
-                        android:gravity="center"
-                        android:textSize="15dp"
-                        android:textColor="@color/primary"
-                        android:background="@drawable/rounded_background_unfill"
-                        />
                 </LinearLayout>
 
             </LinearLayout>

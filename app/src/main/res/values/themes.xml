@@ -66,6 +66,13 @@
         <item name="android:background">@color/lightPrimary</item>
 
     </style>
+    <style name="subHeadingStyleWithBackgroundSmallSize" >
+        <item name="android:color">@color/lightDark</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/lightPrimary</item>
+
+    </style>
 
     <!--  fields padding and color setting   -->
 

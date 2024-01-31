@@ -1,5 +1,7 @@
 package com.example.shoppe.UserPages.SingleScreen;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -51,6 +53,7 @@ public class SingleProductFragment extends Fragment {
 
         Glide.with(getContext()).load(data.getProductImage()).into(binding.productImage);
         binding.productDescription.setText(data.getProductDescription());
+        binding.productPrice.setText(data.getProductPrice());
 
 
 
@@ -86,7 +89,9 @@ public class SingleProductFragment extends Fragment {
 //                        data.getProductImage());
 //
 //                reference.child(uniqueName).setValue(model);
-
+                SharedPreferences preferences = getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+                String email = preferences.getString("email", "no email id");
+                String userId = preferences.getString("userId", "no userIid");
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference().child("AddToCart/");
 
@@ -94,7 +99,8 @@ public class SingleProductFragment extends Fragment {
                 String productNameToCheck = data.getProductName();
 
                 // Query to check if the productName already exists
-                Query query = reference.orderByChild("productName").equalTo(productNameToCheck);
+                Query query = reference.child(userId).orderByChild("productName").equalTo(productNameToCheck);
+
 
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -112,18 +118,17 @@ public class SingleProductFragment extends Fragment {
                             String productPrice = dataSnapshot.child(existingProductId).child("productPrice").getValue(String.class);
                             int convertedProductPrice = Integer.parseInt(productPrice);
                             int totalPrice = productQuantity * convertedProductPrice;
-                            reference.child(existingProductId).child("productQuantity").setValue(productQuantity + 1 );
-                            reference.child(existingProductId).child("productPrice").setValue(String.valueOf(totalPrice));
-                            reference.child(existingProductId).child("totalPrice").setValue(totalPrice );
+                            reference.child(userId).child(existingProductId).child("productQuantity").setValue(productQuantity + 1 );
+                            reference.child(userId).child(existingProductId).child("totalPrice").setValue(totalPrice );
 
                         } else {
                             // Product with the same name does not exist, proceed with insertion
                             String uniqueName = UUID.randomUUID().toString() + "_" + System.currentTimeMillis();
                             ShopUserModel model = new ShopUserModel(data.getProductName(),
                                     data.getProductDescription(), data.getProductPrice(),
-                                    data.getProductImage() , 1);
+                                    data.getProductImage() , 1 );
 
-                            reference.child(uniqueName).setValue(model);
+                            reference.child(userId).child(uniqueName).setValue(model);
                         }
                     }
 

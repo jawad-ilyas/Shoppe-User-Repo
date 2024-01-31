@@ -47,6 +47,7 @@ public class UserIntro extends AppCompatActivity implements ItemClickedListener 
                     return true;
                 }else if(itemListener == R.id.StoreIcon)
                 {
+
                     replaceFragment(new ShopUserFragment());
                     return true;
                 }

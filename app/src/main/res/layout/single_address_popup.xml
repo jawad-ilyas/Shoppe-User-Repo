@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent">
+    <!-- Address Field -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="Address"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/addressAddress"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <!-- City Field -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="City"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/addressCity"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <!-- ZIP Code Field -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="ZIP Code"
+        android:layout_marginHorizontal="15dp"
+        style="@style/fieldsStyle"
+        android:id="@+id/addressZipCode"
+        android:paddingVertical="12dp"
+        android:background="@drawable/fileds_backgroudn"
+        android:layout_height="wrap_content"/>
+
+    <!-- Country Code Field (Optional) -->
+    <!--
+    <EditText
+        android:id="@+id/editTextCountryCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Country Code"
+        android:inputType="text"/>
+    -->
+
+    <Button
+        android:id="@+id/adddressAddBtn"
+        style="@style/MyButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/fullwidth_button_backgroud"
+        android:fontFamily="@font/nunito"
+        android:text="Add "
+         android:layout_marginBottom="10dp"
+        android:textStyle="normal" />
+</LinearLayout>

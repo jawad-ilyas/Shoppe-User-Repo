@@ -38,7 +38,7 @@ public class HomeUserFragement extends Fragment {
         GlobalFunctions globalFunctions = new GlobalFunctions();
 
       adapter = globalFunctions.fetchDataFromFireBase(binding.homeProductUserRecyclerView, productsDetail,
-              getContext() , HomeUserModel.class , HomeUserAdapter.class);
+              getContext() , HomeUserModel.class , HomeUserAdapter.class , false);
 
 
         return binding.getRoot();

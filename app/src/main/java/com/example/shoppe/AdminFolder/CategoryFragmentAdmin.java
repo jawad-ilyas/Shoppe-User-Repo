@@ -65,7 +65,7 @@ public class CategoryFragmentAdmin extends Fragment {
 
 
         adapter =  globalFunctions.fetchDataFromFireBase(binding.CategoryFragmentRecyclerView ,categoryDetail ,
-                context , CategoryModelAdmin.class ,  CategoryAdapterAdmin.class );
+                context , CategoryModelAdmin.class ,  CategoryAdapterAdmin.class ,false );
         return binding.getRoot();
     }
     void fetchDataFromFireBase(){

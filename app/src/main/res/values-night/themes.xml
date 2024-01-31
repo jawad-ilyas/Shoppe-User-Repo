@@ -44,6 +44,12 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@color/lightlightDark</item>
     </style>
+  <style name="subHeadingStyleWithBackgroundSmallSize" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/lightlightDark</item>
+    </style>
 
     <!--  fields padding and color setting   -->
 
