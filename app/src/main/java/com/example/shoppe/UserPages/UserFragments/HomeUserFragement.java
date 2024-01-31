@@ -1,5 +1,7 @@
 package com.example.shoppe.UserPages.UserFragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -37,6 +39,11 @@ public class HomeUserFragement extends Fragment {
 
         GlobalFunctions globalFunctions = new GlobalFunctions();
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+        String email = preferences.getString("email", "no email id");
+        String userId = preferences.getString("userId", "no userIid");
+
+//        binding.userId.setText(userId);
       adapter = globalFunctions.fetchDataFromFireBase(binding.homeProductUserRecyclerView, productsDetail,
               getContext() , HomeUserModel.class , HomeUserAdapter.class , false);
 

@@ -47,6 +47,8 @@ public class ShopUserAdapter extends FirebaseRecyclerAdapter<ShopUserModel,
         holder.binding.productPrice.setText(model.getProductPrice());
         holder.binding.productQuantity.setText(  String.valueOf(   model.getProductQuantity()));
         // minus the quantity
+
+
         holder.binding.minusButton.setOnClickListener(v -> {
             if(model.getProductQuantity() == 1)
             {
